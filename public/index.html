@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AAA</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <!-- Muli Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700&subset=vietnamese" rel="stylesheet" />
+
+  </head>
+
+  <body>
+
+    <app></app>
+    <!-- built files will be auto injected -->
+    <script type="text/javascript">
+      var insertJs = function(s, srcArr) {
+        var src = srcArr[0]
+        var d = window.document
+        var js
+        var c = d.getElementsByTagName(s)
+        var fjs = c[c.length - 1];
+        if (d.getElementById(src)) {
+          return
+        }
+        js = d.createElement(s)
+        js.id = src
+        if (s === 'link') {
+          js.href = src + '?ts=' + new Date().getTime()
+          js.rel = 'stylesheet'
+        } else if (s === 'script') {
+          js.src = src + '?ts=' + new Date().getTime()
+        }
+        fjs.parentNode.insertBefore(js, fjs.nextSibling)
+        srcArr.shift()
+        if (srcArr.length > 0) {
+          insertJs(s, srcArr)
+        }
+      }
+      insertJs('link', '<%=files.css%>'.split(','))
+      insertJs('script', '<%=files.js%>'.split(','))
+	  </script>
+  </body>
+</html>

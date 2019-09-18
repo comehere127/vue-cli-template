@@ -1,0 +1,3 @@
+<template>
+  <h1>Đã có lỗi xảy ra</h1>
+</template>
